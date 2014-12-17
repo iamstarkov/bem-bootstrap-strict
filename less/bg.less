@@ -1,0 +1,21 @@
+// Contextual backgrounds
+// For now we'll leave these alongside the text classes until v4 when we can
+// safely shift things around (per SemVer rules).
+.bg_theme_primary {
+  // Given the contrast here, this is the only class to have its color inverted
+  // automatically.
+  color: #fff;
+  .bg-variant(@brand-primary);
+}
+.bg_theme_success {
+  .bg-variant(@state-success-bg);
+}
+.bg_theme_info {
+  .bg-variant(@state-info-bg);
+}
+.bg_theme_warning {
+  .bg-variant(@state-warning-bg);
+}
+.bg_theme_danger {
+  .bg-variant(@state-danger-bg);
+}

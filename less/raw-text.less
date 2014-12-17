@@ -1,0 +1,231 @@
+.raw-text img {
+  vertical-align: middle;
+}
+
+// Horizontal rules
+
+.raw-text hr {
+  margin-top:    @line-height-computed;
+  margin-bottom: @line-height-computed;
+  border: 0;
+  border-top: 1px solid @hr-border;
+}
+
+// Headings
+// -------------------------
+
+.raw-text h1,
+.raw-text h2,
+.raw-text h3,
+.raw-text h4,
+.raw-text h5,
+.raw-text h6 {
+  font-family: @headings-font-family;
+  font-weight: @headings-font-weight;
+  line-height: @headings-line-height;
+  color: @headings-color;
+
+  small,
+  .small {
+    font-weight: normal;
+    line-height: 1;
+    color: @headings-small-color;
+  }
+}
+
+.raw-text h1,
+.raw-text h2,
+.raw-text h3 {
+  margin-top: @line-height-computed;
+  margin-bottom: (@line-height-computed / 2);
+
+  small {
+    font-size: 65%;
+  }
+}
+
+.raw-text h4,
+.raw-text h5,
+.raw-text h6 {
+  margin-top: (@line-height-computed / 2);
+  margin-bottom: (@line-height-computed / 2);
+
+  small {
+    font-size: 75%;
+  }
+}
+
+.raw-text h1 { font-size: @font-size-h1; }
+.raw-text h2 { font-size: @font-size-h2; }
+.raw-text h3 { font-size: @font-size-h3; }
+.raw-text h4 { font-size: @font-size-h4; }
+.raw-text h5 { font-size: @font-size-h5; }
+.raw-text h6 { font-size: @font-size-h6; }
+
+// Body text
+// -------------------------
+
+.raw-text p {
+  margin: 0 0 (@line-height-computed / 2);
+}
+
+// Emphasis & misc
+// -------------------------
+
+// Ex: (12px small font / 14px base font) * 100% = about 85%
+.raw-text small {
+  font-size: floor((100% * @font-size-small / @font-size-base));
+}
+
+.raw-text mark {
+  background-color: @state-warning-bg;
+  padding: .2em;
+}
+
+
+// Lists
+// -------------------------
+
+// Unordered and Ordered lists
+.raw-text ul,
+.raw-text ol {
+  margin-top: 0;
+  margin-bottom: (@line-height-computed / 2);
+  ul,
+  ol {
+    margin-bottom: 0;
+  }
+}
+
+
+// Description Lists
+.raw-text dl {
+  margin-top: 0; // Remove browser default
+  margin-bottom: @line-height-computed;
+}
+.raw-text dt,
+.raw-text dd {
+  line-height: @line-height-base;
+}
+.raw-text dt {
+  font-weight: bold;
+}
+.raw-text dd {
+  margin-left: 0; // Undo browser default
+}
+
+
+// Misc
+// -------------------------
+
+// Abbreviations and acronyms
+.raw-text abbr[title],
+// Add data-* attribute to help out our tooltip plugin, per https://github.com/twbs/bootstrap/issues/5257
+.raw-text abbr[data-original-title] {
+  cursor: help;
+  border-bottom: 1px dotted @abbr-border-color;
+}
+
+// Blockquotes
+.raw-text blockquote {
+  padding: (@line-height-computed / 2) @line-height-computed;
+  margin: 0 0 @line-height-computed;
+  font-size: @blockquote-font-size;
+  border-left: 5px solid @blockquote-border-color;
+
+  p,
+  ul,
+  ol {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  // Note: Deprecated small and .small as of v3.1.0
+  // Context: https://github.com/twbs/bootstrap/issues/11660
+  footer,
+  small {
+    display: block;
+    font-size: 80%; // back to default font-size
+    line-height: @line-height-base;
+    color: @blockquote-small-color;
+
+    &:before {
+      content: '\2014 \00A0'; // em dash, nbsp
+    }
+  }
+}
+
+// Addresses
+.raw-text address {
+  margin-bottom: @line-height-computed;
+  font-style: normal;
+  line-height: @line-height-base;
+}
+
+
+//
+// Code (inline and block)
+// --------------------------------------------------
+
+
+// Inline and block code styles
+.raw-text code,
+.raw-text kbd,
+.raw-text pre,
+.raw-text samp {
+  font-family: @font-family-monospace;
+}
+
+// Inline code
+.raw-text code {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: @code-color;
+  background-color: @code-bg;
+  border-radius: @border-radius-base;
+}
+
+
+// User input typically entered via keyboard
+.raw-text kbd {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: @kbd-color;
+  background-color: @kbd-bg;
+  border-radius: @border-radius-small;
+  box-shadow: inset 0 -1px 0 rgba(0,0,0,.25);
+
+  kbd {
+    padding: 0;
+    font-size: 100%;
+    font-weight: bold;
+    box-shadow: none;
+  }
+}
+
+
+// Blocks of code
+.raw-text pre {
+  display: block;
+  padding: ((@line-height-computed - 1) / 2);
+  margin: 0 0 (@line-height-computed / 2);
+  font-size: (@font-size-base - 1); // 14px to 13px
+  line-height: @line-height-base;
+  word-break: break-all;
+  word-wrap: break-word;
+  color: @pre-color;
+  background-color: @pre-bg;
+  border: 1px solid @pre-border-color;
+  border-radius: @border-radius-base;
+
+  // Account for some code outputs that place code tags in pre tags
+  code {
+    padding: 0;
+    font-size: inherit;
+    color: inherit;
+    white-space: pre-wrap;
+    background-color: transparent;
+    border-radius: 0;
+  }
+}
